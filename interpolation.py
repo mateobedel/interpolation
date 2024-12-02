@@ -507,7 +507,8 @@ def cubicHermiteSpline(points, T, c=0, rayon_perc=0):
 def Lagrange(points, T):
 
     n = points.shape[0]
-    x, y = points[:, 0], points[:, 1]
+    sorted_indices = np.argsort(points[:, 0])
+    x, y = points[sorted_indices, 0], points[sorted_indices, 1]
     result = []
 
     for t in T:  
